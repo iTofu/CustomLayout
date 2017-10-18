@@ -32,6 +32,7 @@ static NSString *CellReuseID = @"cell";
     
     CustomLayout *layout = [[CustomLayout alloc] init];
     layout.models = self.models;
+    [layout autoGenerateAttrs];
     
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
     collectionView.dataSource = self;
@@ -47,19 +48,13 @@ static NSString *CellReuseID = @"cell";
     
     self.layout = layout;
     self.collectionView = collectionView;
-    
-//    NSTimer *timer = [NSTimer timerWithTimeInterval:5.0 repeats:YES block:^(NSTimer * _Nonnull timer) {
-//        [self.models addObjectsFromArray:[self generateCustomModels]];
-//        self.layout.models = self.models;
-//        [self.collectionView reloadData];
-//    }];
-//    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
-//    [timer fire];
 }
 
 - (void)addModels {
     [self.models addObjectsFromArray:[self generateCustomModels]];
+    self.layout.forcedAlignment = YES;
     self.layout.models = self.models;
+    [self.layout autoGenerateAttrs];
     [self.collectionView reloadData];
 }
 
@@ -78,23 +73,10 @@ static NSString *CellReuseID = @"cell";
     
 }
 
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-//    if (-scrollView.contentOffset.y >= scrollView.contentSize.height - scrollView.bounds.size.height - 1) {
-//        [self.models addObjectsFromArray:[self generateCustomModels]];
-//        self.layout.models = self.models;
-//        [self.collectionView reloadData];
-//    }
-}
-
-- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
-    
-}
-
 #pragma mark - UICollectionViewDataSource, UICollectionViewDelegate
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    CustomLayout *layout = (CustomLayout *)collectionView.collectionViewLayout;
-    return self.models.count - (layout.lastModel ? 1 : 0);
+    return self.layout.attrs.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {

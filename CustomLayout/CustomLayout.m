@@ -12,7 +12,6 @@
 
 @interface CustomLayout ()
 
-@property (nonatomic, strong) NSArray<UICollectionViewLayoutAttributes *> *attrs;
 @property (nonatomic, assign) CGFloat bottom;
 
 @end
@@ -29,10 +28,10 @@
 - (void)prepareLayout {
     [super prepareLayout];
     
-//    [self generateAttrsWithModels];
+//    [self autoGenerateAttrs];
 }
 
-- (void)generateAttrsWithModels {
+- (void)autoGenerateAttrs {
     NSInteger itemsCount = self.models.count;
     CGFloat padding = 1.0;
     
@@ -47,7 +46,6 @@
     CGFloat y = self.bottom;
     NSInteger startIndex = self.startIndex;
     if (self.lastModel) {
-//        startIndex--;
         self.lastModel = nil;
     }
     
@@ -160,7 +158,21 @@
                 }
             } else {
                 // 多余一个 -
-                self.lastModel = model1;
+                if (self.isForcedAlignment) {
+                    model1.type = 4;
+                    
+                    CGRect frame1 = CGRectMake(0, y, size4.width, size4.height);
+                    
+                    UICollectionViewLayoutAttributes *attr1 = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:[NSIndexPath indexPathForItem:i inSection:0]];
+                    
+                    attr1.frame = frame1;
+                    
+                    [attrs addObject:attr1];
+                    
+                    y = CGRectGetMaxY(frame1) + padding;
+                } else {
+                    self.lastModel = model1;
+                }
             }
         } else {
             // + ?
@@ -310,7 +322,21 @@
                 }
             } else {
                 // 多余一个 +
-                self.lastModel = model1;
+                if (self.isForcedAlignment) {
+                    model1.type = 14;
+                    
+                    CGRect frame1 = CGRectMake(0, y, size14.width, size14.height);
+                    
+                    UICollectionViewLayoutAttributes *attr1 = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:[NSIndexPath indexPathForItem:i inSection:0]];
+                    
+                    attr1.frame = frame1;
+                    
+                    [attrs addObject:attr1];
+                    
+                    y = CGRectGetMaxY(frame1) + padding;
+                } else {
+                    self.lastModel = model1;
+                }
             }
         }
     }
@@ -325,34 +351,7 @@
 
 - (void)setModels:(NSArray<CustomModel *> *)models {
     _models = models;
-    
-    [self generateAttrsWithModels];
 }
-
-- (void)appendModels:(NSArray<CustomModel *> *)models {
-    NSMutableArray<CustomModel *> *arrM = [NSMutableArray arrayWithArray:self.models];
-    [arrM addObjectsFromArray:models];
-    _models = [NSArray arrayWithArray:arrM];
-    
-    [self generateAttrsWithModels];
-}
-
-//- (void)setModels:(NSArray<CustomModel *> *)models {
-//    self.attrs = [self handleModels:models startIndex:0];
-//
-//    _models = models;
-//}
-//
-//- (void)appendModels:(NSArray<CustomModel *> *)models {
-//    NSArray *handledArr = [self handleModels:models startIndex:self.models.count];
-//    NSMutableArray *attrsM = [NSMutableArray arrayWithArray:self.attrs];
-//    [attrsM addObjectsFromArray:handledArr];
-//    self.attrs = [NSArray arrayWithArray:attrsM];
-//
-//    NSMutableArray *arrM = [NSMutableArray arrayWithArray:self.models];
-//    [arrM addObjectsFromArray:models];
-//    _models = [NSArray arrayWithArray:arrM];
-//}
 
 - (CGSize)collectionViewContentSize {
     return CGSizeMake([UIScreen mainScreen].bounds.size.width, MAX(self.bottom, self.collectionView.bounds.size.height));
