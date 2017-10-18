@@ -94,9 +94,9 @@
                             model4.type = 3;
                             
                             CGRect frame1 = CGRectMake(0, y, size1.width, size1.height);
-                            CGRect frame2 = CGRectMake(kScreenW - size14.width - 0.01, y, size14.width, size14.height);
+                            CGRect frame2 = CGRectMake(kScreenW - size14.width, y, size14.width, size14.height);
                             CGRect frame3 = CGRectMake(0, CGRectGetMaxY(frame1) + padding, size14.width, size14.height);
-                            CGRect frame4 = CGRectMake(kScreenW - size1.width - 0.01, CGRectGetMaxY(frame2) + padding, size1.width, size1.height);
+                            CGRect frame4 = CGRectMake(kScreenW - size1.width, CGRectGetMaxY(frame2) + padding, size1.width, size1.height);
                             
                             UICollectionViewLayoutAttributes *attr1 = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:[NSIndexPath indexPathForItem:i inSection:0]];
                             UICollectionViewLayoutAttributes *attr2 = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:[NSIndexPath indexPathForItem:i + 1 inSection:0]];
@@ -121,7 +121,7 @@
                             model2.type = 2;
                             
                             CGRect frame1 = CGRectMake(0, y, size2.width, size2.height);
-                            CGRect frame2 = CGRectMake(kScreenW - size12.width - 0.01, y, size12.width, size12.height);
+                            CGRect frame2 = CGRectMake(kScreenW - size12.width, y, size12.width, size12.height);
                             
                             UICollectionViewLayoutAttributes *attr1 = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:[NSIndexPath indexPathForItem:i inSection:0]];
                             UICollectionViewLayoutAttributes *attr2 = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:[NSIndexPath indexPathForItem:i + 1 inSection:0]];
@@ -141,7 +141,7 @@
                         model2.type = 2;
                         
                         CGRect frame1 = CGRectMake(0, y, size2.width, size2.height);
-                        CGRect frame2 = CGRectMake(kScreenW - size12.width - 0.01, y, size12.width, size12.height);
+                        CGRect frame2 = CGRectMake(kScreenW - size12.width, y, size12.width, size12.height);
                         
                         UICollectionViewLayoutAttributes *attr1 = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:[NSIndexPath indexPathForItem:i inSection:0]];
                         UICollectionViewLayoutAttributes *attr2 = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:[NSIndexPath indexPathForItem:i + 1 inSection:0]];
@@ -188,8 +188,8 @@
                             model3.type = 11;
                             
                             CGRect frame1 = CGRectMake(0, y, size11.width, size11.height);
-                            CGRect frame2 = CGRectMake(CGRectGetMaxX(frame1) + padding - 0.01, y, size11.width, size11.height);
-                            CGRect frame3 = CGRectMake(kScreenW - size11.width - 0.01, y, size11.width, size11.height);
+                            CGRect frame2 = CGRectMake(CGRectGetMaxX(frame1) + padding, y, size11.width, size11.height);
+                            CGRect frame3 = CGRectMake(kScreenW - size11.width, y, size11.width, size11.height);
                             
                             UICollectionViewLayoutAttributes *attr1 = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:[NSIndexPath indexPathForItem:i inSection:0]];
                             UICollectionViewLayoutAttributes *attr2 = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:[NSIndexPath indexPathForItem:i + 1 inSection:0]];
@@ -258,9 +258,9 @@
                             model4.type = 13;
                             
                             CGRect frame1 = CGRectMake(0, y, size14.width, size14.height);
-                            CGRect frame2 = CGRectMake(kScreenW - size1.width - 0.01, y, size1.width, size1.height);
+                            CGRect frame2 = CGRectMake(kScreenW - size1.width, y, size1.width, size1.height);
                             CGRect frame3 = CGRectMake(0, CGRectGetMaxY(frame1) + padding, size1.width, size1.height);
-                            CGRect frame4 = CGRectMake(kScreenW - size14.width - 0.01, CGRectGetMaxY(frame2) + padding, size14.width, size14.height);
+                            CGRect frame4 = CGRectMake(kScreenW - size14.width, CGRectGetMaxY(frame2) + padding, size14.width, size14.height);
                             
                             UICollectionViewLayoutAttributes *attr1 = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:[NSIndexPath indexPathForItem:i inSection:0]];
                             UICollectionViewLayoutAttributes *attr2 = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:[NSIndexPath indexPathForItem:i + 1 inSection:0]];
@@ -285,7 +285,7 @@
                             model2.type = 12;
                             
                             CGRect frame1 = CGRectMake(0, y, size12.width, size12.height);
-                            CGRect frame2 = CGRectMake(kScreenW - size2.width - 0.01, y, size2.width, size2.height);
+                            CGRect frame2 = CGRectMake(kScreenW - size2.width, y, size2.width, size2.height);
                             
                             UICollectionViewLayoutAttributes *attr1 = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:[NSIndexPath indexPathForItem:i inSection:0]];
                             UICollectionViewLayoutAttributes *attr2 = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:[NSIndexPath indexPathForItem:i + 1 inSection:0]];
@@ -305,7 +305,7 @@
                         model2.type = 12;
                         
                         CGRect frame1 = CGRectMake(0, y, size12.width, size12.height);
-                        CGRect frame2 = CGRectMake(kScreenW - size2.width - 0.01, y, size2.width, size2.height);
+                        CGRect frame2 = CGRectMake(kScreenW - size2.width, y, size2.width, size2.height);
                         
                         UICollectionViewLayoutAttributes *attr1 = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:[NSIndexPath indexPathForItem:i inSection:0]];
                         UICollectionViewLayoutAttributes *attr2 = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:[NSIndexPath indexPathForItem:i + 1 inSection:0]];
