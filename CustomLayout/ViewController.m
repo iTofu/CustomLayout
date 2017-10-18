@@ -52,7 +52,7 @@ static NSString *CellReuseID = @"cell";
 
 - (void)addModels {
     [self.models addObjectsFromArray:[self generateCustomModels]];
-    self.layout.forcedAlignment = YES;
+//    self.layout.forcedAlignment = YES;
     self.layout.models = self.models;
     [self.layout autoGenerateAttrs];
     [self.collectionView reloadData];

@@ -353,6 +353,15 @@
     _models = models;
 }
 
+- (void)setStartIndex:(NSInteger)startIndex {
+    _startIndex = startIndex;
+    
+    if (startIndex <= 0) {
+        self.attrs = [[NSArray alloc] init];
+        self.forcedAlignment = NO;
+    }
+}
+
 - (CGSize)collectionViewContentSize {
     return CGSizeMake([UIScreen mainScreen].bounds.size.width, MAX(self.bottom, self.collectionView.bounds.size.height));
 }
